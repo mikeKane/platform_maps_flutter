@@ -104,6 +104,7 @@ class Marker {
     this.consumeTapEvents = false,
     this.draggable = false,
     this.icon,
+    this.lottieFile,
     this.infoWindow = InfoWindow.noText,
     this.position = const LatLng(0.0, 0.0),
     this.onTap,
@@ -130,6 +131,8 @@ class Marker {
   /// A description of the bitmap used to draw the marker icon.
   final BitmapDescriptor? icon;
 
+  final String? lottieFile;
+
   /// A Google Maps InfoWindow.
   ///
   /// The window is displayed when the marker is tapped.
@@ -154,6 +157,7 @@ class Marker {
         onTap: this.onTap,
         icon: this.icon?.bitmapDescriptor ??
             BitmapDescriptor.defaultMarker?.bitmapDescriptor,
+        lottieFile: this.lottieFile,
         visible: this.visible,
         onDragEnd: this.onDragEnd != null
             ? (appleMaps.LatLng latLng) =>
@@ -188,6 +192,7 @@ class Marker {
         onTap: marker.onTap,
         icon: marker.icon?.bitmapDescriptor ??
             BitmapDescriptor.defaultMarker?.bitmapDescriptor,
+        lottieFile: marker.lottieFile,
         visible: marker.visible,
         onDragEnd: marker.onDragEnd != null
             ? (appleMaps.LatLng latLng) =>
@@ -218,6 +223,7 @@ class Marker {
       Set<Marker> markers) {
     List<appleMaps.Annotation> _annotations = <appleMaps.Annotation>[];
     for (Marker marker in markers) {
+      print(marker.lottieFile);
       _annotations.add(appleMapsAnnotationFromMarker(marker));
     }
     return Set.from(_annotations);
@@ -236,6 +242,7 @@ class Marker {
     bool? consumeTapEventsParam,
     bool? draggableParam,
     BitmapDescriptor? iconParam,
+    String? lottieFile,
     InfoWindow? infoWindowParam,
     LatLng? positionParam,
     bool? visibleParam,
@@ -247,6 +254,7 @@ class Marker {
       consumeTapEvents: consumeTapEventsParam ?? consumeTapEvents,
       draggable: draggableParam ?? draggable,
       icon: iconParam ?? icon,
+      lottieFile: lottieFile,
       infoWindow: infoWindowParam ?? infoWindow,
       position: positionParam ?? position,
       visible: visibleParam ?? visible,
