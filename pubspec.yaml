@@ -11,12 +11,13 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   google_maps_flutter: ^2.0.1
   google_maps_flutter_platform_interface: ^2.0.3
-  apple_maps_flutter: 
-    path: /Users/_kane7161/Xcode/Prolific/apple_maps_flutter
-
+  apple_maps_flutter:
+    git:
+    publish_to: none
+    url: https://github.com/mikeKane/apple_maps_flutter.git
+    branch: master
 dev_dependencies:
   flutter_test:
     sdk: flutter
