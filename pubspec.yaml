@@ -15,9 +15,8 @@ dependencies:
   google_maps_flutter_platform_interface: ^2.0.3
   apple_maps_flutter:
     git:
-    publish_to: none
-    url: https://github.com/mikeKane/apple_maps_flutter.git
-    branch: master
+      url: https://github.com/mikeKane/apple_maps_flutter.git
+      branch: master
 dev_dependencies:
   flutter_test:
     sdk: flutter
