@@ -223,7 +223,6 @@ class Marker {
       Set<Marker> markers) {
     List<appleMaps.Annotation> _annotations = <appleMaps.Annotation>[];
     for (Marker marker in markers) {
-      print(marker.lottieFile);
       _annotations.add(appleMapsAnnotationFromMarker(marker));
     }
     return Set.from(_annotations);
