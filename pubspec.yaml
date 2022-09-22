@@ -16,7 +16,7 @@ dependencies:
   apple_maps_flutter:
     git:
       url: https://github.com/mikeKane/apple_maps_flutter.git
-      ref: c2b68b57967e7f4bebed8b9184226e13844e4588
+      ref: 214ea2079b2b736783e23be971d074ba49d8672e
 dev_dependencies:
   flutter_test:
     sdk: flutter
