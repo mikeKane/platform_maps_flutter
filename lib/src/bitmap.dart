@@ -30,6 +30,10 @@ class BitmapDescriptor {
     String assetName, {
     AssetBundle? bundle,
     String? package,
+    double? width,
+    double? height,
+    double? imagePixelRatio,
+    MapBitmapScaling bitmapScaling = googleMaps.MapBitmapScaling.auto,
   }) async {
     dynamic bitmap;
     if (Platform.isIOS) {
@@ -40,11 +44,15 @@ class BitmapDescriptor {
         package: package,
       );
     } else if (Platform.isAndroid) {
-      bitmap = await googleMaps.BitmapDescriptor.fromAssetImage(
+      bitmap = await googleMaps.BitmapDescriptor.asset(
         configuration,
         assetName,
         bundle: bundle,
         package: package,
+        width: height,
+        height: height,
+        imagePixelRatio: imagePixelRatio,
+        bitmapScaling: bitmapScaling,
       );
     }
     return BitmapDescriptor._(bitmap);
@@ -54,7 +62,7 @@ class BitmapDescriptor {
   /// as PNG.
   static BitmapDescriptor fromBytes(Uint8List byteData) {
     var bitmap = Platform.isAndroid
-        ? googleMaps.BitmapDescriptor.fromBytes(byteData)
+        ? googleMaps.BitmapDescriptor.bytes(byteData)
         : appleMaps.BitmapDescriptor.fromBytes(byteData);
     return BitmapDescriptor._(bitmap);
   }
