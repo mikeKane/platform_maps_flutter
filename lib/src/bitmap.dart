@@ -49,7 +49,7 @@ class BitmapDescriptor {
         assetName,
         bundle: bundle,
         package: package,
-        width: height,
+        width: width,
         height: height,
         imagePixelRatio: imagePixelRatio,
         bitmapScaling: bitmapScaling,
